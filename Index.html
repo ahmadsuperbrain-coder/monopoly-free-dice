@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src='//libtl.com/sdk.js' data-zone='10334182' data-sdk='show_10334182'></script>
   <meta charset="UTF-8">
   <title>Free Dice for Monopoly GO</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,6 +46,7 @@
       font-size: 18px;
       font-weight: bold;
       border-radius: 8px;
+      cursor: pointer;
     }
     .btn:hover {
       background: #e68900;
@@ -73,10 +76,17 @@
         Monopoly GO dice instantly.
       </p>
 
-      <!-- 🔴 SAKA CPA / CPAGRIP LINK ANAN -->
+      <!-- 🔴 CPA / CPAGRIP LINK -->
       <a href="https://YOUR-CPA-LINK-HERE" class="btn">
         👉 Claim Free Dice Now
       </a>
+
+      <!-- 🔴 Rewarded Ads Buttons -->
+      <div>
+        <button class="btn" id="interstitialBtn">Watch Interstitial Ad</button>
+        <button class="btn" id="popupBtn">Watch Popup Ad</button>
+        <button class="btn" id="inAppBtn">Show In-App Ad</button>
+      </div>
 
       <p class="note">
         Works on Android & iOS. One claim per user. Limited time offer.
@@ -87,5 +97,39 @@
       © 2025 Monopoly GO Rewards | Not affiliated with Scopely
     </footer>
   </div>
+
+  <script>
+    // 🔴 Rewarded Interstitial
+    document.getElementById('interstitialBtn').addEventListener('click', function() {
+      show_10334182().then(() => {
+        alert('Ka kalli Interstitial Ad! Ka samu free dice!');
+        // Saka function naka na reward user anan
+        // rewardUser();
+      }).catch(err => console.error(err));
+    });
+
+    // 🔴 Rewarded Popup
+    document.getElementById('popupBtn').addEventListener('click', function() {
+      show_10334182('pop').then(() => {
+        alert('Ka kalli Popup Ad! Ka samu reward!');
+        // rewardUser();
+      }).catch(err => console.error(err));
+    });
+
+    // 🔴 In-App Interstitial
+    document.getElementById('inAppBtn').addEventListener('click', function() {
+      show_10334182({
+        type: 'inApp',
+        inAppSettings: {
+          frequency: 2,
+          capping: 0.1,
+          interval: 30,
+          timeout: 5,
+          everyPage: false
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
