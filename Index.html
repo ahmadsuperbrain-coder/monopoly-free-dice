@@ -1,137 +1,162 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <script src="https://quge5.com/88/tag.min.js" data-zone="193832" async data-cfasync="false"></script>
-  <meta name="monetag" content="da70b97d7de11cf9d1a86e762fb8575a"/>
-  <script src='//libtl.com/sdk.js' data-zone='10334182' data-sdk='show_10334182'></script>
-  <meta charset="UTF-8">
-  <title>Free Dice for Monopoly GO</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Get Free Dice Rolls for Monopoly GO today. Updated daily links and rewards.">
-  
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #1e90ff, #00c6ff);
-      color: #fff;
-      text-align: center;
-    }
-    .container {
-      padding: 40px 20px;
-      max-width: 600px;
-      margin: auto;
-    }
-    h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .box {
-      background: #ffffff;
-      color: #333;
-      padding: 25px;
-      border-radius: 12px;
-      margin-top: 30px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background: #ff9800;
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #e68900;
-    }
-    .note {
-      font-size: 13px;
-      margin-top: 15px;
-      color: #555;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 12px;
-      opacity: 0.8;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartQR Tool - Free QR Generator</title>
+<meta name="description" content="Create free colorful QR codes online with SmartQR Tool. Customize and download QR codes as PNG.">
+<meta name="theme-color" content="#050510">
+<link rel="canonical" href="https://smartqrtool.netlify.app/">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#050510;color:white;font-family:Arial,sans-serif;padding:20px 14px;min-height:100vh;overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;width:250px;height:250px;border-radius:50%;filter:blur(90px);z-index:-1;opacity:.5;animation:float 7s infinite alternate}
+body:before{background:#ff00cc;top:-80px;left:-70px}
+body:after{background:#00eaff;right:-70px;bottom:-80px}
+@keyframes float{to{transform:translate(70px,60px) scale(1.2)}}
+@keyframes rgb{0%{border-color:#ff00cc}33%{border-color:#00eaff}66%{border-color:#aaff00}100%{border-color:#ff00cc}}
+@keyframes text{0%{color:#ff00cc}33%{color:#00eaff}66%{color:#aaff00}100%{color:#ff00cc}}
+header{text-align:center;margin:10px auto 25px}
+.logo{font-size:30px;font-weight:900;animation:text 4s infinite}
+header p{color:#b6bdd6;font-size:13px;line-height:1.7;margin-top:10px}
+.box{max-width:480px;margin:auto;border:2px solid #ff00cc;border-radius:20px;animation:rgb 4s infinite;background:#0d1125;padding:20px;box-shadow:0 0 25px #00eaff22}
+h2{text-align:center;font-size:21px;margin-bottom:18px}
+label{display:block;font-size:13px;margin:14px 0 7px;color:#dce2ff}
+textarea,input,select{width:100%;padding:12px;border-radius:9px;background:#080b19;color:white;border:1px solid #343957;font-size:14px}
+textarea{height:90px;resize:vertical}
+.row,.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+input[type=color]{height:43px;padding:4px}
+button{padding:12px;border:0;border-radius:9px;color:white;font-weight:bold;cursor:pointer}
+.generate{width:100%;margin-top:18px;background:linear-gradient(90deg,#ff00cc,#3333ff,#00eaff,#aaff00);background-size:200%;animation:move 4s infinite}
+@keyframes move{to{background-position:200%}}
+#qr{display:none;width:fit-content;max-width:100%;margin:20px auto;padding:15px;border-radius:8px;background:white}
+#qr canvas,#qr img{display:block;max-width:100%;height:auto}
+#status{text-align:center;color:#b6bdd6;font-size:12px;margin:12px 0;overflow-wrap:anywhere}
+.actions{margin-top:12px}
+.actions button{background:#19213b;border:1px solid #343957}
+footer{text-align:center;font-size:12px;color:#aab4d0;line-height:2;margin:25px auto}
+a{color:#00eaff;text-decoration:none}
+.cookieBtn{position:fixed;bottom:12px;left:12px;background:#111a30;border:1px solid #00eaff;border-radius:25px;display:none}
+.overlay{display:none;position:fixed;inset:0;background:#000c;z-index:10;align-items:center;justify-content:center;padding:15px}
+.overlay.show{display:flex}
+.cookies{max-width:420px;width:100%;padding:20px;background:#0c1022;border:2px solid #ff00cc;border-radius:17px;animation:rgb 4s infinite;max-height:90vh;overflow:auto}
+.cookies h2{animation:text 4s infinite}
+.cookies p{font-size:12px;color:#c5cce0;line-height:1.7;margin-bottom:12px}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#151b31;padding:12px;border-radius:9px;margin:9px 0;font-size:13px}
+.opt input{width:18px;height:18px;accent-color:#00eaff}
+.cookieActions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.cookieActions button{font-size:11px;background:#202943}
+.cookieActions .accept{background:linear-gradient(90deg,#ff00cc,#3333ff,#00eaff)}
+.cookieActions .save{grid-column:1/-1;border:1px solid #00eaff}
+@media(max-width:380px){.box{padding:15px}.logo{font-size:25px}}
+</style>
 </head>
+<body><header>
+<div class="logo">SmartQR Tool</div>
+<p>Free RGB QR Code Generator<br>Create, customize and download QR codes instantly.</p>
+</header><main class="box">
+<h2>⚡ Create QR Code</h2>
+<label for="txt">Enter Text or URL</label>
+<textarea id="txt" placeholder="https://smartqrtool.netlify.app/"></textarea>
+<div class="row">
+<div><label for="size">QR Size</label><select id="size"><option>128</option><option>180</option><option selected>220</option><option>300</option><option>400</option></select></div>
+<div><label for="margin">White Margin</label><select id="margin"><option value="0">None</option><option value="10">Small</option><option value="20" selected>Medium</option><option value="35">Large</option></select></div>
+</div>
+<div class="row">
+<div><label for="color">QR Color</label><input type="color" id="color" value="#000000"></div>
+<div><label for="bg">Background</label><input type="color" id="bg" value="#ffffff"></div>
+</div>
+<button class="generate" id="make">GENERATE QR CODE</button>
+<div id="qr"></div>
+<p id="status">Your QR code will appear here.</p>
+<div class="actions">
+<button id="download">⬇ Download PNG</button>
+<button id="copy">📋 Copy Text</button>
+</div>
+</main><footer>
+© <span id="year"></span> SmartQR Tool<br>
+<a href="https://smartqrtool.netlify.app/">Home</a> ·
+<a href="privacy.html">Privacy Policy</a> ·
+<a href="#" id="settingsLink">Cookie Settings</a>
+</footer><button class="cookieBtn" id="cookieBtn">🍪 Cookie Settings</button>
 
-<body>
-  <div class="container">
-    <h1>🎲 Free Dice for Monopoly GO</h1>
-    <p>Get extra dice rolls and rewards today. Updated daily and easy to claim.</p>
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="ctitle">
+<div class="cookies">
+<h2 id="ctitle">🍪 Your Privacy</h2>
+<p>SmartQR Tool uses essential browser storage to remember your choices. Optional analytics and marketing tools should only run after consent. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+<div class="opt">Essential Storage <input type="checkbox" checked disabled></div>
+<div class="opt">Analytics <input type="checkbox" id="analytics"></div>
+<div class="opt">Marketing <input type="checkbox" id="marketing"></div>
+<div class="cookieActions">
+<button class="accept" id="accept">Accept All</button>
+<button id="reject">Reject Optional</button>
+<button class="save" id="save">Save Preferences</button>
+</div>
+</div>
+</div><script>
+const $=id=>document.getElementById(id);
+const KEY="smartqrtool_cookie_preferences_v1";
+let prefs=null,qrText="",qrSize=220,qrMargin=20,qrColor="#000000",qrBg="#ffffff";
 
-    <div class="box">
-      <h2>How to Get Free Dice</h2>
-      <p>
-        Click the button below, complete a quick step, and receive your free
-        Monopoly GO dice instantly.
-      </p>
+function readPrefs(){try{return JSON.parse(localStorage.getItem(KEY))}catch(e){return null}}
+function consent(a,m){
+prefs={essential:true,analytics:!!a,marketing:!!m,updatedAt:new Date().toISOString()};
+try{localStorage.setItem(KEY,JSON.stringify(prefs))}catch(e){}
+$("analytics").checked=prefs.analytics;
+$("marketing").checked=prefs.marketing;
+$("overlay").classList.remove("show");
+$("cookieBtn").style.display="block";
+window.dispatchEvent(new CustomEvent("smartqrConsentUpdated",{detail:prefs}));
+}
+function openSettings(){
+let p=prefs||readPrefs();
+$("analytics").checked=!!(p&&p.analytics);
+$("marketing").checked=!!(p&&p.marketing);
+$("overlay").classList.add("show");
+}
+$("accept").onclick=()=>consent(true,true);
+$("reject").onclick=()=>consent(false,false);
+$("save").onclick=()=>consent($("analytics").checked,$("marketing").checked);
+$("cookieBtn").onclick=openSettings;
+$("settingsLink").onclick=e=>{e.preventDefault();openSettings()};
+$("overlay").onclick=e=>{if(e.target===$("overlay")&&readPrefs())$("overlay").classList.remove("show")};
+prefs=readPrefs();
+if(prefs){$("cookieBtn").style.display="block";$("analytics").checked=!!prefs.analytics;$("marketing").checked=!!prefs.marketing}
+else $("overlay").classList.add("show");
 
-      <!-- 🔴 CPA / CPAGRIP LINK -->
-      <a href="https://otieu.com/4/10047564" class="btn">
-        👉 Claim Free Dice Now
-      </a>
-
-      <!-- 🔴 Rewarded Ads Buttons -->
-      <div>
-        <button class="btn" id="interstitialBtn">Watch Interstitial Ad</button>
-        <button class="btn" id="popupBtn">Watch Popup Ad</button>
-        <button class="btn" id="inAppBtn">Show In-App Ad</button>
-      </div>
-
-      <p class="note">
-        Works on Android & iOS. One claim per user. Limited time offer.
-      </p>
-    </div>
-
-    <footer>
-      © 2025 Monopoly GO Rewards | Not affiliated with Scopely
-    </footer>
-  </div>
-
-  <script>
-    // 🔴 Rewarded Interstitial
-    document.getElementById('interstitialBtn').addEventListener('click', function() {
-      show_10334182().then(() => {
-        alert('Ka kalli Interstitial Ad! Ka samu free dice!');
-        // Saka function naka na reward user anan
-        // rewardUser();
-      }).catch(err => console.error(err));
-    });
-
-    // 🔴 Rewarded 
-    document.getElementById('popupBtn').addEventListener('click', function() {
-      show_10334182('pop').then(() => {
-        alert('Ka kalli Popup Ad! Ka samu reward!');
-        // rewardUser();
-      }).catch(err => console.error(err));
-    });
-
-    // 🔴 In-App Interstitial
-    document.getElementById('inAppBtn').addEventListener('click', function() {
-      show_10334182({
-        type: 'inApp',
-        inAppSettings: {
-          frequency: 2,
-          capping: 0.1,
-          interval: 30,
-          timeout: 5,
-          everyPage: false
-        }
-      });
-    });
-  </script>
-
-</body>
+function generate(){
+let t=$("txt").value.trim();
+if(!t){$("status").textContent="Please enter text or a URL.";return}
+if(typeof QRCode==="undefined"){$("status").textContent="QR library failed to load. Check internet.";return}
+qrText=t;qrSize=+$("size").value;qrMargin=+$("margin").value;qrColor=$("color").value;qrBg=$("bg").value;
+$("qr").innerHTML="";$("qr").style.display="block";$("qr").style.padding=qrMargin+"px";$("qr").style.background=qrBg;
+new QRCode($("qr"),{text:t,width:qrSize,height:qrSize,colorDark:qrColor,colorLight:qrBg,correctLevel:QRCode.CorrectLevel.H});
+$("status").textContent="QR code generated successfully!";
+}
+$("make").onclick=generate;
+["size","margin","color","bg"].forEach(id=>$(id).onchange=()=>{if($("txt").value.trim())generate()});
+$("download").onclick=()=>{
+if(!qrText||!$("qr").querySelector("canvas,img")){ $("status").textContent="Generate a QR code first.";return}
+let source=$("qr").querySelector("canvas");
+if(!source){
+let img=$("qr").querySelector("img"),im=new Image();
+im.onload=()=>exportPNG(im);im.src=img.src;return;
+}
+exportPNG(source);
+};
+function exportPNG(source){
+let out=document.createElement("canvas"),p=qrMargin;
+out.width=qrSize+p*2;out.height=qrSize+p*2;
+let c=out.getContext("2d");c.fillStyle=qrBg;c.fillRect(0,0,out.width,out.height);
+c.drawImage(source,p,p,qrSize,qrSize);
+let a=document.createElement("a");a.download="smartqrtool.png";a.href=out.toDataURL("image/png");a.click();
+$("status").textContent="PNG download started.";
+}
+$("copy").onclick=async()=>{
+let t=$("txt").value.trim();if(!t){$("status").textContent="Enter text first.";return}
+try{await navigator.clipboard.writeText(t);$("status").textContent="Text copied!"}
+catch(e){$("txt").select();$("status").textContent="Select the text and copy it manually."}
+};
+$("year").textContent=new Date().getFullYear();
+</script></body>
 </html>
